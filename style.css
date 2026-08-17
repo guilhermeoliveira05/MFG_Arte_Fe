@@ -616,19 +616,25 @@ ul  { list-style: none; }
   justify-content: center;
   position: relative;
 }
-.product-img img { width: 100%; height: 100%; object-fit: cover; }
 
-.product-placeholder {
+/* REMOVA o padding do .product-placeholder e faça a imagem ocupar 100% */
+.product-img .product-placeholder {
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: .35rem;
-  color: var(--teal-mid);
-  font-size: .75rem;
-  text-align: center;
-  padding: 1rem;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0; /* <-- ZERA O PADDING */
 }
-.product-placeholder .icon { font-size: 2.2rem; }
+
+.product-img .product-placeholder img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* <-- A imagem vai preencher todo o espaço */
+  object-position: center;
+}
 
 .product-body {
   padding: .85rem;
@@ -675,7 +681,6 @@ ul  { list-style: none; }
 .btn-cart:hover { background: var(--teal-dark); }
 .btn-cart:active { transform: scale(.97); }
 .btn-cart svg { width: 14px; height: 14px; flex-shrink: 0; }
-
 /* ══════════════════════════════════════════
    UTILITÁRIOS GERAIS
 ══════════════════════════════════════════ */
